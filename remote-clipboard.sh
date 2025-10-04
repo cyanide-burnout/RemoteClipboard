@@ -15,6 +15,7 @@ COPIER=""
 [ -z "$COPIER" ] && [[ -n "${DISPLAY:-}" ]]         && command -v xclip   >/dev/null && COPIER="$(command -v xclip)   -selection clipboard -in -quiet"
 [ -z "$COPIER" ] && [[ -n "${DISPLAY:-}" ]]         && command -v xsel    >/dev/null && COPIER="$(command -v xsel)    --clipboard --input"
 [ -z "$COPIER" ] && { [[ -n "${WSL_DISTRO_NAME:-}" ]] || grep -qiE 'microsoft|WSL' /proc/version >/dev/null; } && command -v clip.exe >/dev/null && COPIER="$(command -v clip.exe)"
+
 [ -z "$COPIER" ]            && { echo "No clipboard backend" >&2; exit 1; }
 command -v socat >/dev/null || { echo "socat is required"    >&2; exit 1; }
 

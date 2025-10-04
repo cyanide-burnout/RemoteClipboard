@@ -24,7 +24,7 @@ bind ^Y "{execute}|/home/user/remote-copy.sh{enter}{undo}" main
 set -g set-clipboard on
 set -as terminal-features  ',*:clipboard'
 set -as terminal-overrides ',*:Ms=\E]52;c;%p1%s\7'
-set -s mouse on
+set -g mouse on
 
 set -g @copier "/home/user/remote-copy.sh"
 
